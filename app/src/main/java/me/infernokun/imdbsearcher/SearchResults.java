@@ -58,8 +58,6 @@ public class SearchResults extends AppCompatActivity {
 
         final ArrayList<HashMap<Integer, String>> movieList = (ArrayList<HashMap<Integer, String>>) getIntent().getSerializableExtra("MovieTitles");
 
-        System.out.println(movieList.size());
-
         // back button for testing
         backButtonClicked(mBackButton);
 
@@ -76,7 +74,6 @@ public class SearchResults extends AppCompatActivity {
 
         // multiple results
         final String url2 = MainActivity.mainURL + "&s=" + text;
-        //System.out.println("url: " + url);
 
         return url2;
     }
@@ -223,8 +220,9 @@ public class SearchResults extends AppCompatActivity {
             // Remove TextViews from screen after each search
             l.removeAllViews();
 
-            // for loop to add text views and dada
+            // for loop to add text views and data
             for (int i = 0; i < search.length(); i++) {
+
                 // get each array element as a json obj
                 JSONObject movie = (JSONObject) search.get(i);
                 String n = movie.getString("Title");
@@ -237,13 +235,8 @@ public class SearchResults extends AppCompatActivity {
                 // make new textview for the movie title
                 movieText[i] = new TextView(SearchResults.this);
 
-
-                // add the movie title to the view
-                //movieTable.addView(movieText[i]);
-
                 movieText[i].setText(n);
                 movieText[i].setTextSize(20);
-
             }
 
             createImageButtons(movieList);

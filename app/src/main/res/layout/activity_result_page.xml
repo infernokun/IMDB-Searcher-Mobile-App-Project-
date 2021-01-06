@@ -52,7 +52,7 @@
                 android:id="@+id/posterView"
                 android:layout_width="142dp"
                 android:layout_height="228dp"
-                android:layout_marginStart="28dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="20dp"
                 android:src="@mipmap/ic_launcher"
                 app:layout_constraintBottom_toTopOf="@+id/titleView"

@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity
                             @Override
                             public void onResponse(String response) {
                                 executeSearch(response, getUserInput());
-                                System.out.println("Works");
+                                System.out.println("Working");
                             }
                         }, new Response.ErrorListener() {
                     @Override
@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity
 
             // for loop to add text views and dada
             for (int i = 0; i < search.length(); i++) {
+
                 // get each array element as a json obj
                 JSONObject movie = (JSONObject) search.get(i);
                 String n = movie.getString("Title");
@@ -109,10 +110,6 @@ public class MainActivity extends AppCompatActivity
                 // make new textview for the movie title
                 movieText[i] = new TextView(MainActivity.this);
 
-
-                // add the movie title to the view
-                //movieTable.addView(movieText[i]);
-
                 movieText[i].setText(n);
                 movieText[i].setTextSize(20);
 
@@ -121,13 +118,9 @@ public class MainActivity extends AppCompatActivity
             // add the arraylist too the next activity
             intent.putExtra("MovieTitles", movieList);
             intent.putExtra("Search", text);
-            System.out.println(movieList.size());
 
             // start new activity
             startActivity(intent);
-            System.out.println(response);
-
-            //mTextQuery.setText(display);
         }catch (Exception ex) {
             Toast.makeText(MainActivity.this, "None in database", Toast.LENGTH_SHORT).show();
         }
@@ -139,7 +132,6 @@ public class MainActivity extends AppCompatActivity
 
         // multiple results
         final String url2 = mainURL + "&s=" + text;
-        System.out.println("url: " + url2);
 
         return url2;
     }
